@@ -18,7 +18,7 @@ import { SignalCellularNullOutlined } from "@material-ui/icons";
 
 const steps = ["Shipping Address", "Payment Details"];
 
-export default function Checkout({ cart }) {
+export default function Checkout({ cart, order, onCaptureCheckout, error }) {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
@@ -57,6 +57,8 @@ export default function Checkout({ cart }) {
         shippingData={shippingData}
         checkoutToken={checkoutToken}
         backStep={backStep}
+        nextStep={nextStep}
+        onCaptureCheckout={onCaptureCheckout}
       />
     );
 
